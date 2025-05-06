@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import Upload from "./components/Upload";
-import Streamgraph from "./components/Streamgraph";
-import Legend from "./components/Legend";
 import "./App.css";
 
 function App() {
@@ -19,12 +17,7 @@ function App() {
       </div>
       {data && (
         <div style={{display: "flex", flexDirection: "row", alignItems: "flex-start", marginTop: "20px"}}>
-          <div style={{flex: 1}}>
-            <Streamgraph data={data}/>
-          </div>
-          <div style={{marginLeft: "20px"}}>
-            <Legend/>
-          </div>
+          
         </div>
       )}
     </div>
