@@ -1,0 +1,51 @@
+.line-graph {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .line-graph h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .line-graph svg {
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .metric-selector,
+  .country-selector,
+  .year-slider {
+    flex: 1;
+    margin: 0 10px;
+  }
+  
+  .metric-selector label {
+    display: block;
+    margin: 5px 0;
+  }
+  
+  .country-selector select {
+    width: 100%;
+    padding: 5px;
+  }
+  
+  .year-slider input {
+    width: 100%;
+  }
+  
+  .line {
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  
+  .legend-item text {
+    font-size: 12px;
+  }
