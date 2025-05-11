@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import Upload from "./components/Upload";
 import LineGraph from "./components/LineGraph";
 import csvData from './data.csv';
 import "./App.css";
@@ -32,7 +31,6 @@ function App() {
   
   return (
     <div className="App" style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-      <Upload></Upload>
       <LineGraph data={data}></LineGraph>
 
     </div>
