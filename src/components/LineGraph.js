@@ -8,7 +8,7 @@ function LineGraph({ data }) {
   const [selectedCountry, setSelectedCountry] = useState('All');
   const [maxYear, setMaxYear] = useState(2025);
 
-  // Metrics available for Y-axis
+  //Column choices for Y-axis
   const metrics = [
     'AI Adoption Rate (%)',
     'AI-Generated Content Volume (TBs per year)',
@@ -19,29 +19,27 @@ function LineGraph({ data }) {
     'Market Share of AI Companies (%)',
   ];
 
-  // Unique countries and industries
+  //Compile set of countries and industries
   const countries = data ? ['All', ...new Set(data.map(d => d.Country))] : [];
   const industries = data ? [...new Set(data.map(d => d.Industry))] : [];
 
   useEffect(() => {
     if (!data || !industries.length) return;
 
-    // Filter data by selected country
+    //Filter data by selected country
     const filteredData = selectedCountry === 'All'
       ? data
       : data.filter(d => d.Country === selectedCountry);
 
-    // Get min and max years
+    //Set min and max years
     const years = [...new Set(filteredData.map(d => +d.Year))];
     const minYear = Math.min(...years); // Fixed at 2020
-    const maxYearPossible = Math.max(...years); // 2025
 
-    // Filter data by year range (minYear to maxYear)
+    //Filter data by year range
     const plotData = filteredData.filter(d => +d.Year <= maxYear);
 
-    // Group data by industry for lines, aggregating duplicate years
+    //Group data by industry for lines
     const dataByIndustry = industries.map(industry => {
-      // Filter valid data for the industry
       const industryData = plotData
         .filter(d => d.Industry === industry && !isNaN(+d[selectedMetric]) && d[selectedMetric] !== '')
         .map(d => ({
@@ -49,7 +47,6 @@ function LineGraph({ data }) {
           value: +d[selectedMetric],
         }));
 
-      // Aggregate duplicate years by averaging values
       const yearMap = new Map();
       industryData.forEach(d => {
         if (yearMap.has(d.year)) {
@@ -71,16 +68,12 @@ function LineGraph({ data }) {
       return { industry, values };
     });
 
-
-    // Set up SVG dimensions
+    //SVG dimensions
     const margin = { top: 20, right: 100, bottom: 100, left: 60 };
     const width = 800 - margin.left - margin.right;
     const height = 400 - margin.top - margin.bottom;
 
-    // Clear previous SVG content
     d3.select(svgRef.current).selectAll('*').remove();
-
-    // Create SVG
     const svg = d3
       .select(svgRef.current)
       .attr('width', width + margin.left + margin.right)
@@ -88,7 +81,7 @@ function LineGraph({ data }) {
       .append('g')
       .attr('transform', `translate(${margin.left},${margin.top})`);
 
-    // Define clip path to prevent lines from extending outside the graph area
+    //Clip path
     svg
     .append('defs')
     .append('clipPath')
@@ -101,26 +94,25 @@ function LineGraph({ data }) {
 
     const plotArea = svg.append('g').attr('clip-path', 'url(#clip)');
 
-    // Scales
+    //X-scale
     const xScale = d3
       .scaleLinear()
       .domain([minYear, maxYear])
       .range([0, width]);
 
-    // Calculate Y-scale after dataByIndustry is defined
+    //Y-scale
     const maxYValue = d3.max(dataByIndustry, d => d3.max(d.values, v => v.value)) || 100;
     const yScale = d3
       .scaleLinear()
-      .domain([0, maxYValue * 1.1]) // Add 10% padding
+      .domain([0, maxYValue * 1.1])
       .range([height, 0]);
 
-    // Color scale for industries
+    //Colors for industries
     const colorScale = d3
       .scaleOrdinal()
       .domain(industries)
       .range(d3.schemeCategory10);
 
-    // Line generator
     const line = d3
       .line()
       .x(d => xScale(d.year))
@@ -139,7 +131,7 @@ function LineGraph({ data }) {
       .attr('stroke', d => colorScale(d.industry))
       .attr('stroke-width', 4);
 
-    // X-axis
+    //X-axis
     svg
       .append('g')
       .attr('transform', `translate(0,${height})`)
@@ -156,7 +148,7 @@ function LineGraph({ data }) {
       .text('Year');
 
 
-    // Y-axis
+    //Y-axis
     svg
       .append('g')
       .call(d3.axisLeft(yScale))
@@ -168,7 +160,7 @@ function LineGraph({ data }) {
       .attr('transform', 'rotate(-90)')
       .text(selectedMetric);
 
-    // Legend
+    //Legend
     const legend = svg
       .append('g')
       .attr('transform', `translate(${width + 20}, 0)`);

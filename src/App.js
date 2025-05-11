@@ -32,7 +32,7 @@ function App() {
   
   return (
     <div className="App" style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-  
+      <Upload></Upload>
       <LineGraph data={data}></LineGraph>
 
     </div>
