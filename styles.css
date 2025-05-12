@@ -1,0 +1,124 @@
+.heading{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 225px;
+    border-bottom: solid 8px orange;
+}
+.title{
+    flex-grow: 1;
+}
+.name{
+    font-weight: bold;
+    font-size: 24px;
+}
+.occupation{
+    font-size: 22px;
+    margin-top: -20px;
+}
+.space{
+    flex-grow: 2;
+}
+.contacts{
+    flex-grow: 1;
+    font-size: 14px
+}
+.title, .contacts{
+    text-align: center;
+}
+
+
+hr {
+    width:90%;
+    margin:0 auto;
+    color: black;
+    background-color: black;
+}
+
+.profile{
+    display: flex;
+    flex-direction: row;
+    font-size: 18px;
+    
+}
+.profileTitle{
+    font-style: italic;
+    font-weight: bold;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.profileContent{
+    font-family: Arial;
+    flex-grow: 2;
+}
+
+.experience{
+    display: flex;
+    flex-direction: row;
+    font-size: 18px;
+}
+
+.experienceTitle{
+    font-style: italic;
+    font-weight: bold;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.experienceContent{
+    font-family: Arial;
+    flex-grow: 2;
+}
+
+.jobTitle{
+    font-weight: bold;
+}
+
+.skills{
+    display: flex;
+    flex-direction: row;
+    font-size: 18px;
+}
+
+.skillsTitle{
+    font-style: italic;
+    font-weight: bold;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.skillsContent{
+    display: flex;
+    justify-content: flex-start;
+    font-family: Arial;
+    flex-grow: 2;
+    
+}
+.skillsContent1, .skillsContent2, .skillsContent3{
+    flex-grow: 1;
+    margin: 10px 0;
+}
+.education{
+    display: flex;
+    font-size: 18px;
+}
+
+.educationTitle{
+    font-style: italic;
+    font-weight: bold;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.educationContent{
+    font-family: Arial;
+    flex-grow: 2;
+}
+
+.schoolTitle{
+    font-weight: bold;
+}
+.listitem{
+    margin-bottom: -15px;
+}

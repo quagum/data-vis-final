@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/Data-Vis-Final-Project/static/css/main.b8fc3ce8.css",
+    "main.js": "/Data-Vis-Final-Project/static/js/main.f32e86fa.js",
+    "static/media/data.csv": "/Data-Vis-Final-Project/static/media/data.85ffc326cdcf1f2a6626.csv",
+    "index.html": "/Data-Vis-Final-Project/index.html",
+    "main.b8fc3ce8.css.map": "/Data-Vis-Final-Project/static/css/main.b8fc3ce8.css.map",
+    "main.f32e86fa.js.map": "/Data-Vis-Final-Project/static/js/main.f32e86fa.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b8fc3ce8.css",
+    "static/js/main.f32e86fa.js"
+  ]
+}
