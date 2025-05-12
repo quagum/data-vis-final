@@ -1,0 +1,81 @@
+.metric-hover-chart {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .metric-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+  }
+  
+  .metric-box {
+    padding: 10px 15px;
+    background-color: #2d3e50;
+    color: white;
+    border: 1px solid #444;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .metric-box:hover {
+    background-color: #3e5771;
+  }
+  
+  svg {
+    margin: auto;
+    display: block;
+  }
+  
+  .arc text {
+    pointer-events: none;
+  }
+
+  .chart-tooltip {
+    position: fixed;
+    background: #1e2b3c;
+    color: white;
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 10px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    pointer-events: none;
+  }
+  
+  .chart-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .chart-container.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .legend {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+  }
+  
+  .legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+  
+  .legend-color {
+    width: 12px;
+    height: 12px;
+    margin-right: 6px;
+    display: inline-block;
+  }
+
