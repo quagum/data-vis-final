@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import LineGraph from "./components/LineGraph";
+import MetricHoverChart from './components/MetricHoverChart';
 import BarGraph from './components/BarGraph';
 import csvData from './data.csv';
 import "./App.css";
@@ -32,6 +33,7 @@ function App() {
   
   return (
     <div className="App" style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+       <MetricHoverChart data={data} />
       <LineGraph data={data}></LineGraph>
       <BarGraph data={data}></BarGraph>
     </div>
